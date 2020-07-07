@@ -4,10 +4,12 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
+//import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+//import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import jp.kobespiral.todo.entity.User;
@@ -20,7 +22,7 @@ public class UserController {
     UserService us;
 
     @PostMapping("/users")
-    public String addUser(UserForm form, Model model){
+    public String addUser(@Validated UserForm form, Model model){
         User u = new User();
         u.setUid(form.getUid());
         u.setName(form.getName());
