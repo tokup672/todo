@@ -8,5 +8,5 @@ import jp.kobespiral.todo.entity.User;
 @Repository
 public interface UserRepository extends CrudRepository<User, Long>{
     /**　uidからユーザーを返す */
-    public Iterable<User> findUserByUid(String uid); 
+    public User findUserByUid(String uid); 
 }
