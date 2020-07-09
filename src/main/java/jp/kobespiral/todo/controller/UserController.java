@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 //import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -22,7 +23,7 @@ public class UserController {
     UserService us;
 
     @PostMapping("/users")
-    public String addUser(@Validated UserForm form, Model model){
+    public String addUser(@ModelAttribute("form") @Validated UserForm form, Model model){
         User u = new User();
         u.setUid(form.getUid());
         u.setName(form.getName());
